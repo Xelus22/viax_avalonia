@@ -1,0 +1,63 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:viax_avalonia.ViewModels"
+			 xmlns:ui="using:FluentAvalonia.UI.Controls"
+			 xmlns:settings="using:viax_avalonia.Views.Settings"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="600"
+             x:Class="viax_avalonia.Views.TabsView"
+             x:DataType="vm:TabsViewModel">
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+		<vm:TabsViewModel />
+	</Design.DataContext>
+	<Grid MinWidth="600">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<ui:NavigationView
+			Grid.Row="1"
+			x:Name="NavPanel"
+			PaneDisplayMode="Left">
+			<ui:NavigationView.MenuItems>
+				<ui:NavigationViewItem
+					Content="Settings Tab"
+					IconSource="New"
+					Tag="SettingsPage"
+				/>
+				<ui:NavigationViewItem
+					Content="Configure Tab"
+					IconSource="New"
+					Tag="ConfigurePage"
+				/>
+				<ui:NavigationViewItem
+					Content="Testing Tab"
+					IconSource="New"
+					Tag="TesterPage"
+				/>
+			</ui:NavigationView.MenuItems>
+		</ui:NavigationView>
+		<ReversibleStackPanel
+			Background="lightblue"
+            Grid.Row="2"
+            Margin="10"
+            Spacing="10"
+            Orientation="Horizontal"
+            HorizontalAlignment="Right"
+            ReverseOrder="False">
+			<Button
+                HotKey="Enter"
+                Classes="accent"
+                Content="Test" />
+			<Button
+                HotKey="Escape"
+                Content="test2" />
+			<Button
+                Content="test3"/>
+		</ReversibleStackPanel>
+	</Grid>
+</UserControl>
